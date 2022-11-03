@@ -1,26 +1,29 @@
 ﻿// ----------- VARIABILI GLOBALI ------------
-//Lavanderia lavanderia = new Lavanderia();
 
-
-
-Lavatrice Lavatrice1 = new Lavatrice(1000, 500, true);
+Lavatrice Lavatrice1 = new Lavatrice();
 public class Lavatrice
 {
     public int LivelloDetersivo { get; private set; }
     public int LivelloAmmorbidente { get; private set; }
     public bool InFunzione { get; set; }
 
-    public Lavatrice(int livelloDetersivo, int livelloAmmorbidente, bool inFunzione)
+    Lavaggio Lavaggio { get; set; }
+
+    public Lavatrice()
     {
-        LivelloDetersivo = livelloDetersivo;
-        LivelloAmmorbidente = livelloAmmorbidente;
-        InFunzione = inFunzione;
+        LivelloDetersivo = 1000;
+        LivelloAmmorbidente = 500;
+        InFunzione = false;
+        Lavaggio = Rinfrescante;
     }
+
+    Lavaggio Rinfrescante = new Lavaggio(2, 20, 20, 5);
+    Lavaggio Rinnovante = new Lavaggio(3, 40, 40, 10);
+    Lavaggio Sgrassante = new Lavaggio(4, 60, 60, 15);
 }
 
 public class Lavaggio
 {
-    public string TipoLavaggio { get; set; }
     public int CostoGettoni { get; set; }
     public int DurataLavaggio { get; set; }
 
@@ -28,9 +31,8 @@ public class Lavaggio
 
     public int ConsumoAmmorbidente { get; set; }
 
-    public Lavaggio (string tipoLavaggio, int costoGettoni, int durataLavaggio, int consumoDetersivo, int consumoAmmorbidente)
-    {
-        TipoLavaggio = tipoLavaggio;
+    public Lavaggio (int costoGettoni, int durataLavaggio, int consumoDetersivo, int consumoAmmorbidente)
+    {       
         CostoGettoni = costoGettoni;
         DurataLavaggio = durataLavaggio;
         ConsumoDetersivo = consumoDetersivo;
@@ -39,11 +41,21 @@ public class Lavaggio
 }
 public class Asciugatrice
 {
+    public bool InFunzione { get; set; }
 
+    Asciugatura Rapido = new Asciugatura(2, 30);
+    Asciugatura Intenso = new Asciugatura(4, 60);
 }
 
+public class Asciugatura
+{
+    public int CostoGettoni { get; set; }
+    public int DurataAsciugatura { get; set; }
 
-//public class Lavanderia
-//{
+    public Asciugatura(int costoGettoni, int durataAsciugatura)
+    {
+        CostoGettoni = costoGettoni;
+        DurataAsciugatura = durataAsciugatura;
+    }
+}
 
-//}
