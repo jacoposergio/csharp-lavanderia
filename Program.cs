@@ -1,14 +1,41 @@
 ﻿// ----------- VARIABILI GLOBALI ------------
 
-Lavatrice Lavatrice1 = new Lavatrice();
+Lavanderia acquaESapone = new Lavanderia();
+acquaESapone.Stampa();
+
+
+public class Lavanderia
+{
+    public Lavatrice[] lavatriceArray = new Lavatrice[5];
+    public Asciugatrice[] asciugatriceArray = new Asciugatrice[5];
+
+    public Lavanderia()
+    {
+        for (int i = 0; i < lavatriceArray.Length; i++)
+        {
+            lavatriceArray[i] = new Lavatrice();
+            asciugatriceArray[i] = new Asciugatrice();
+        }
+    }
+    public void Stampa()
+    {
+        for(int i = 0; i < lavatriceArray.Length; i++)
+        {
+            Lavatrice nuovaLavatrice = lavatriceArray[i];
+            Console.WriteLine(nuovaLavatrice.LivelloDetersivo);
+        }
+    }
+
+}
+
+
 public class Lavatrice
 {
-    public int LivelloDetersivo { get; private set; }
-    public int LivelloAmmorbidente { get; private set; }
+    public int LivelloDetersivo { get; set; }
+    public int LivelloAmmorbidente { get; set; }
     public bool InFunzione { get; set; }
 
     Lavaggio Lavaggio { get; set; }
-
     public Lavatrice()
     {
         LivelloDetersivo = 1000;
