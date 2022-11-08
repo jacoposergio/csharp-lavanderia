@@ -11,12 +11,12 @@ public class Lavanderia
 
         for (int i = 0; i < 5; i++)
         {
-            lavatriciArray[i] = new Lavatrici("Lavatrice " + (i + 1), true, null, 1000, 500, 0);
+            lavatriciArray[i] = new Lavatrici("Lavatrice " + (i + 1), true, null, 1000, 500, 0, 0);
             lavatriciArray[i].programmaRandom();
         }
         for (int i = 0; i < 5; i++)
         {
-            asciugatriciArray[i] = new Asciugatrici("Asciugatrice " + (i + 1), true, null, 0);
+            asciugatriciArray[i] = new Asciugatrici("Asciugatrice " + (i + 1), true, null, 1,1);
             asciugatriciArray[i].programmaRandom();
         }
     }
