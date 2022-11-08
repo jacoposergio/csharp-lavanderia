@@ -11,6 +11,8 @@ public abstract class Macchine
 
     public int DurataDelLavaggio { get; set; }
 
+    public Programmi[] programmiArray;
+
     public Macchine(string nome, bool stato, Programmi programmaSelezionato, int guadagnoMacchine, int durataDelLavaggio)
     {
         Nome = nome;
@@ -19,5 +21,15 @@ public abstract class Macchine
         DurataDelLavaggio = durataDelLavaggio;
     }
 
+    public virtual void programmaRandom()
+    {
+        Random rnd = new Random();
+        int randomNumber = rnd.Next(0, programmiArray.Length);
+        ProgrammaSelezionato = programmiArray[randomNumber];
+        GuadagnoMacchine += ProgrammaSelezionato.Costo;
+    }
+
 }
 
+
+//////////////////////////////////////////////////////////////
