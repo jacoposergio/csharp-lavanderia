@@ -1,14 +1,23 @@
 ﻿
 
 
-public class Lavatrici : Macchine
+public class Lavatrici
 {
+
+    public string Nome { get; private set; }
+    public bool Stato { get; set; }
+    public Programmi ProgrammaSelezionato { get; set; }
     public int QuantitàDiDetersivo { get; set; }
     public int QuantitàDiAmmorbidente { get; set; }
     public int DurataDelLavaggio { get; set; }
+    public int GuadagnoMacchine { get; set; }
 
-    public Lavatrici(string nome, bool stato, Programmi programmaSelezionato, int guadagnoMacchine, Programmi[] programmiArray, int quantitàDiDetersivo, int quantitàDiAmmorbidente, int durataDelLavaggio) : base( nome , stato , programmiArray)
+    public Programmi[] programmiArray;
+    public Lavatrici(string nome, bool stato, Programmi programmaSelezionato, int quantitàDiDetersivo, int quantitàDiAmmorbidente, int durataDelLavaggio)
     {
+        Nome = nome;
+        Stato = stato;
+        ProgrammaSelezionato = programmaSelezionato;
         QuantitàDiDetersivo = quantitàDiDetersivo;
         QuantitàDiAmmorbidente = quantitàDiAmmorbidente;
         DurataDelLavaggio = durataDelLavaggio;

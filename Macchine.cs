@@ -9,14 +9,12 @@ public abstract class Macchine
     public Programmi ProgrammaSelezionato { get; set; }
     public int GuadagnoMacchine { get; set; }
 
-    public Programmi[] programmiArray;
-
-   public Macchine(string nome, bool stato, Programmi programmaSelezionato, Programmi[] programmiArray)
+    public Macchine(string nome, bool stato, Programmi programmaSelezionato, int guadagnoMacchine)
     {
         Nome = nome;
         Stato = stato;
         ProgrammaSelezionato = programmaSelezionato;
-        this.programmiArray = programmiArray;
     }
+
 }
 

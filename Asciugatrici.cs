@@ -2,15 +2,25 @@
 
 
 
-public class Asciugatrici : Macchine
+public class Asciugatrici
 {
+    public string Nome { get; private set; }
+    public bool Stato { get; set; }
+    public Programmi ProgrammaSelezionato { get; set; }
     public int DurataDelLavaggio { get; set; }
 
-    public Asciugatrici(string nome, bool stato, Programmi programmaSelezionato, int guadagnoMacchine, Programmi[] programmiArray, int durataDelLavaggio) : base (nome, stato, programmaSelezionato, programmiArray)
+    public int GuadagnoMacchine { get; set; }
+
+    public Programmi[] programmiArray;
+
+    public Asciugatrici(string nome, bool stato, Programmi programmaSelezionato, int durataDelLavaggio)
     {
+        Nome = nome;
+        Stato = stato;
+        ProgrammaSelezionato = programmaSelezionato;
         DurataDelLavaggio = durataDelLavaggio;
 
-        programmiArray = new Programmi[3];
+        programmiArray = new Programmi[2];
         programmiArray[0] = new Programmi("Intenso", 4, 20, 0, 0);
         programmiArray[1] = new Programmi("Rapido", 2, 20, 0, 0); ;
     }
@@ -21,6 +31,7 @@ public class Asciugatrici : Macchine
         int randomNumber = rnd.Next(0, programmiArray.Length);
         ProgrammaSelezionato = programmiArray[randomNumber];
         GuadagnoMacchine += ProgrammaSelezionato.Costo;
+
     }
 }
 

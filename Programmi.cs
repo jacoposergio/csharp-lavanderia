@@ -1,7 +1,5 @@
 ﻿
 
-
-
 public class Programmi
 {
     public int Costo { get; set; }

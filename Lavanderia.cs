@@ -28,23 +28,23 @@ public class Lavanderia
         {
             if (lavatriciArray[i].Stato)
             {
-                Console.WriteLine(lavatriciArray[i].Nome + " in lavaggio");
+                Console.WriteLine(lavatriciArray[i].Nome + "in lavaggio");
             }
             else
             {
-                Console.WriteLine(lavatriciArray[i].Nome + " non in funzione");
+                Console.WriteLine(lavatriciArray[i].Nome + "non in funzione");
             }
         }
-        Console.WriteLine("\r\nTutte le asciugatrici");
+        Console.WriteLine("Tutte le asciugatrici");
         for (int i = 0; i < asciugatriciArray.Length; i++)
         {
             if (asciugatriciArray[i].Stato)
             {
-                Console.WriteLine(asciugatriciArray[i].Nome + " in lavaggio");
+                Console.WriteLine(asciugatriciArray[i].Nome + "in lavaggio");
             }
             else
             {
-                Console.WriteLine(asciugatriciArray[i].Nome + " non in funzione");
+                Console.WriteLine(asciugatriciArray[i].Nome + "non in funzione");
             }
         }
     }
@@ -52,13 +52,14 @@ public class Lavanderia
     public void StatoMacchine()
     {
         Console.WriteLine("Seleziona una macchina");
-        Console.WriteLine("1. Lavatrice");
-        Console.WriteLine("2. Asciugatrice");
+        Console.WriteLine("1) Lavatrice");
+        Console.WriteLine("2) Asciugatrice");
         int risposta = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("seleziona il numero della macchina\r\n");
+        Console.WriteLine("seleziona la macchine \r\n");
         int macchinaSelezionata = Convert.ToInt32(Console.ReadLine());
         if (risposta == 1)
         {
+
             Console.WriteLine(lavatriciArray[macchinaSelezionata - 1].Nome);
             if (lavatriciArray[macchinaSelezionata - 1].Stato)
             {
@@ -71,14 +72,16 @@ public class Lavanderia
             Console.WriteLine("Programma selezionato : " + lavatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Tipo);
             Console.WriteLine("Programma durata : " + lavatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata);
             Random rnd = new Random();
-            int time = rnd.Next(1, lavatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata);
+            int tempo = rnd.Next(1, lavatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata);
+            Console.WriteLine("Tempo rimanente : " + (lavatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata - tempo) + " min");          
             Console.WriteLine("Quantità di detersivo rimanente : " + lavatriciArray[macchinaSelezionata - 1].QuantitàDiDetersivo);
-            Console.WriteLine("Tempo rimanente : " + (lavatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata - time) + " min");          
-   
+    
         }
         else
         {
             Console.WriteLine(asciugatriciArray[macchinaSelezionata - 1].Nome);
+
+
             if (asciugatriciArray[macchinaSelezionata - 1].Stato)
             {
                 Console.WriteLine("Stato: in asciugatura");
@@ -90,8 +93,8 @@ public class Lavanderia
             Console.WriteLine("Programma selezionato : " + asciugatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Tipo);
             Console.WriteLine("Programma durata : " + asciugatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata);
             Random rnd = new Random();
-            int time = rnd.Next(1, asciugatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata);
-            Console.WriteLine("Tempo rimanente : " + (asciugatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata - time) + " min");
+            int tempo = rnd.Next(1, asciugatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata);
+            Console.WriteLine("Tempo rimanente : " + (asciugatriciArray[macchinaSelezionata - 1].ProgrammaSelezionato.Durata - tempo) + " min");
         }
 
     }
